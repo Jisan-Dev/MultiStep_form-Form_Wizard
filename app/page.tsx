@@ -5,6 +5,7 @@ import Step1 from "./components/Step1";
 import { FormProvider } from "./contexts/FormContext";
 import FormProgress from "./components/FormProgress";
 import Step2 from "./components/Step2";
+import Step3 from "./components/Step3";
 
 export default function Home() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -12,10 +13,7 @@ export default function Home() {
   const steps = [
     <Step1 key={1} nextStep={() => setCurrentStep(2)} />,
     <Step2 key={2} nextStep={() => setCurrentStep(3)} prevStep={() => setCurrentStep(1)} />,
-    // <Step3 key={3}
-    //   nextStep={() => setCurrentStep(4)}
-    //   prevStep={() => setCurrentStep(2)}
-    // />,
+    <Step3 key={3} nextStep={() => setCurrentStep(4)} prevStep={() => setCurrentStep(2)} />,
     // <Summary key={4} />
   ];
 
