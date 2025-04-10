@@ -9,11 +9,17 @@ interface Step3ParamTypes {
   prevStep: () => void;
 }
 
+interface Step3Types {
+  username: string;
+  password: string;
+  confirmPassword: string;
+}
+
 const Step3 = ({ nextStep, prevStep }: Step3ParamTypes) => {
   const { formData, setFormData } = useFormContext();
   const [prev, setPrev] = useState(false);
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: Step3Types) => {
     if (prev) {
       setFormData((prev) => ({ ...prev, ...data }));
       prevStep();
