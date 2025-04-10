@@ -45,7 +45,7 @@ const Step2 = ({ nextStep, prevStep }: Step2ParamTypes) => {
           Street
         </label>
         <input type="text" {...register("street")} id="street" className="mt-1 p-2 w-full rounded border border-gray-300" />
-        {errors.zipcode && <p className="text-red-500 text-sm"> {errors.zipcode.message} </p>}
+        {errors.street && <p className="text-red-500 text-sm"> {errors.street.message} </p>}
       </div>
 
       <div>
@@ -69,7 +69,7 @@ const Step2 = ({ nextStep, prevStep }: Step2ParamTypes) => {
           Previous
         </button>
 
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <button type="submit" className="bg-blue-700 hover:bg-blue-800 cursor-pointer transition-all text-white px-4 py-2 rounded-md">
           Next
         </button>
       </div>

@@ -6,6 +6,11 @@ import { FormProvider } from "./contexts/FormContext";
 import FormProgress from "./components/FormProgress";
 import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
+import Summary from "./components/Summary";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+// Create a client
+const queryClient = new QueryClient();
 
 export default function Home() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -14,17 +19,20 @@ export default function Home() {
     <Step1 key={1} nextStep={() => setCurrentStep(2)} />,
     <Step2 key={2} nextStep={() => setCurrentStep(3)} prevStep={() => setCurrentStep(1)} />,
     <Step3 key={3} nextStep={() => setCurrentStep(4)} prevStep={() => setCurrentStep(2)} />,
-    // <Summary key={4} />
+    <Summary key={4} />,
   ];
 
   return (
-    <FormProvider>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
-        <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-          <FormProgress currentStep={currentStep} />
-          {steps[currentStep - 1]}
+    <QueryClientProvider client={queryClient}>
+      <FormProvider>
+        <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h1 className="text-center font-bold text-2xl mb-5">Form Wizard</h1>
+            <FormProgress currentStep={currentStep} />
+            {steps[currentStep - 1]}
+          </div>
         </div>
-      </div>
-    </FormProvider>
+      </FormProvider>
+    </QueryClientProvider>
   );
 }

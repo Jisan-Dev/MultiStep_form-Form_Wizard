@@ -54,7 +54,7 @@ export default function Step1({ nextStep }: { nextStep: () => void }) {
       </div>
 
       <div className="flex justify-end">
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+        <button type="submit" className="bg-blue-700 hover:bg-blue-800 cursor-pointer transition-all text-white px-4 py-2 rounded-md">
           Next
         </button>
       </div>

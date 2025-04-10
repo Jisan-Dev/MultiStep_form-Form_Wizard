@@ -62,7 +62,7 @@ const Step3 = ({ nextStep, prevStep }: Step3ParamTypes) => {
         <button type="submit" onClick={() => setPrev(true)} className="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300">
           Previous
         </button>
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <button type="submit" className="bg-blue-700 hover:bg-blue-800 cursor-pointer transition-all text-white px-4 py-2 rounded-md">
           Next
         </button>
       </div>

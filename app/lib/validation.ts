@@ -7,13 +7,18 @@ export const step1Schema = z.object({
 });
 
 export const step2Schema = z.object({
-  street: z.string().min(1, "Street field is required"),
-  city: z.string().min(1, "City field is required"),
+  street: z.string().refine((data) => data !== "", "Street field is required"),
+  city: z.string().refine((data) => data !== "", "City field is required"),
   zipcode: z.string().min(5, "Minimum 5 digits").regex(/^\d+$/, "Numbers only"),
 });
 
-export const step3Schema = z.object({
-  username: z.string().min(4, "Minimum 4 characters"),
-  password: z.string().min(6, "Minimum 6 characters"),
-  confirmPassword: z.string().min(6, "Minimum 6 characters"),
-});
+export const step3Schema = z
+  .object({
+    username: z.string().min(4, "Minimum 4 characters"),
+    password: z.string().min(6, "Minimum 6 characters"),
+    confirmPassword: z.string().min(6, "Minimum 6 characters"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  });
