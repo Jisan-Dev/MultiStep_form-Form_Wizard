@@ -5,7 +5,7 @@ export default function FormProgress({ currentStep }: { currentStep: number }) {
         <div key={step} className="flex items-center">
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center 
-            ${currentStep >= step ? "bg-blue-600 text-white" : "bg-gray-200"}`}>
+            ${currentStep >= step ? "bg-blue-600 text-white" : "bg-gray-200 text-neutral-800"}`}>
             {step}
           </div>
           {step < 3 && <div className="w-16 h-1 bg-gray-200 mx-2"></div>}

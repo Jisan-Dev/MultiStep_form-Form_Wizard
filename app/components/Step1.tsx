@@ -5,6 +5,12 @@ import { useFormContext } from "../contexts/FormContext";
 import { step1Schema } from "../lib/validation";
 import { useForm } from "react-hook-form";
 
+interface Step1Types {
+  fullName: string;
+  email: string;
+  phone: string;
+}
+
 export default function Step1({ nextStep }: { nextStep: () => void }) {
   const { formData, setFormData } = useFormContext();
   const {
@@ -16,7 +22,7 @@ export default function Step1({ nextStep }: { nextStep: () => void }) {
     defaultValues: formData,
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: Step1Types) => {
     setFormData((prev) => ({ ...prev, ...data }));
     nextStep();
   };
