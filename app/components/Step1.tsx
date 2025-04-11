@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useFormContext } from "../contexts/FormContext";
 import { step1Schema } from "../lib/validation";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 interface Step1Types {
   fullName: string;
@@ -16,6 +17,7 @@ export default function Step1({ nextStep }: { nextStep: () => void }) {
   const {
     register,
     handleSubmit,
+    setFocus,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(step1Schema),
@@ -26,6 +28,11 @@ export default function Step1({ nextStep }: { nextStep: () => void }) {
     setFormData((prev) => ({ ...prev, ...data }));
     nextStep();
   };
+
+  // Auto-focus first field on mount
+  useEffect(() => {
+    setFocus("fullName");
+  }, [setFocus]); // setFocus is stable, no infinite loops
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
