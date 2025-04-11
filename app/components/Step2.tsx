@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormContext } from "../contexts/FormContext";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -22,6 +22,7 @@ const Step2 = ({ nextStep, prevStep }: Step2ParamTypes) => {
   const {
     register,
     handleSubmit,
+    setFocus,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(step2Schema),
@@ -37,6 +38,11 @@ const Step2 = ({ nextStep, prevStep }: Step2ParamTypes) => {
       nextStep();
     }
   };
+
+  // Auto-focus first field on mount
+  useEffect(() => {
+    setFocus("street");
+  }, [setFocus]); // setFocus is stable, no infinite loops
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -65,7 +71,7 @@ const Step2 = ({ nextStep, prevStep }: Step2ParamTypes) => {
       </div>
 
       <div className="flex justify-between">
-        <button type="submit" onClick={() => setPrev(true)} className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
+        <button type="submit" onClick={() => setPrev(true)} className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md cursor-pointer hover:bg-gray-300">
           Previous
         </button>
 
