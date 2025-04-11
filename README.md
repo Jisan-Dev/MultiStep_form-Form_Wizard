@@ -19,7 +19,7 @@ A modern multi-step form implementation with robust validation, dark mode suppor
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/<your-username>/<repository-name>.git
+git clone https://github.com/Jisan-Dev/MultiStep_form-Form_Wizard.git
 ```
 
 2. **Navigate to project directory**
