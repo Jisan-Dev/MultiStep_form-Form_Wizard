@@ -45,3 +45,13 @@ pnpm dev
 ```bash
 Visit http://localhost:3000 in your browser
 ```
+
+## Technology Used
+
+- NextJs
+- TailwindCss
+- TanstackQuery/ReactQuery
+- Zod Validation
+- React Hook Form
+- Typescript
+- pnpm as package manager
