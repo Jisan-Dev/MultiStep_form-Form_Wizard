@@ -5,11 +5,13 @@ import { useFormContext } from "../contexts/FormContext";
 import { useMutation } from "@tanstack/react-query";
 
 const Summary = () => {
+  // Access complete form data from context
   const { formData } = useFormContext();
 
   // Simulate API submission
   const { mutate, isPending, isSuccess } = useMutation({
     mutationFn: async (data: typeof formData) => {
+      // Simulate API call with 2 second delay
       await new Promise((resolve) => setTimeout(resolve, 2000));
       return Promise.resolve({ status: 200 });
     },
@@ -61,13 +63,15 @@ const Summary = () => {
           {isPending ? "Submitting..." : isSuccess ? "Submitted!" : "Submit"}
         </button>
 
+        {/* Success Message */}
         {isSuccess && <div className="text-green-600 dark:text-green-400 text-center">✓ Successfully submitted the form!</div>}
       </div>
     </div>
   );
 };
 
-// Helper component for consistent data display
+// Reusable Helper component for consistent data display
+
 function DataRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center">

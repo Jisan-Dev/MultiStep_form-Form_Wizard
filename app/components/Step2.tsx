@@ -16,9 +16,12 @@ interface Step2Types {
 }
 
 const Step2 = ({ nextStep, prevStep }: Step2ParamTypes) => {
+  // Access global form state
   const { formData, setFormData } = useFormContext();
+  // check if the previous button clicked, its also a 'submit' type
   const [prev, setPrev] = useState(false);
 
+  // Form initialization with validation
   const {
     register,
     handleSubmit,
@@ -29,6 +32,7 @@ const Step2 = ({ nextStep, prevStep }: Step2ParamTypes) => {
     defaultValues: formData,
   });
 
+  //Handle valid form submission
   const onSubmit = (data: Step2Types) => {
     if (prev) {
       setFormData((prev) => ({ ...prev, ...data }));

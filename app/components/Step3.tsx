@@ -16,9 +16,12 @@ interface Step3Types {
 }
 
 const Step3 = ({ nextStep, prevStep }: Step3ParamTypes) => {
+  // Access global form state
   const { formData, setFormData } = useFormContext();
+  // check if the previous button clicked, its also a 'submit' type
   const [prev, setPrev] = useState(false);
 
+  // Handle valid form submission
   const onSubmit = (data: Step3Types) => {
     if (prev) {
       setFormData((prev) => ({ ...prev, ...data }));
@@ -29,6 +32,7 @@ const Step3 = ({ nextStep, prevStep }: Step3ParamTypes) => {
     }
   };
 
+  // Form initialization with validation
   const {
     register,
     handleSubmit,

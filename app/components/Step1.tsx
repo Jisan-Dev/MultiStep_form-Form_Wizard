@@ -13,7 +13,10 @@ interface Step1Types {
 }
 
 export default function Step1({ nextStep }: { nextStep: () => void }) {
+  // Access global form state
   const { formData, setFormData } = useFormContext();
+
+  // Form initialization with validation
   const {
     register,
     handleSubmit,
@@ -24,6 +27,7 @@ export default function Step1({ nextStep }: { nextStep: () => void }) {
     defaultValues: formData,
   });
 
+  // Handle valid form submission
   const onSubmit = (data: Step1Types) => {
     setFormData((prev) => ({ ...prev, ...data }));
     nextStep();

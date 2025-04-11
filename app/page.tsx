@@ -15,8 +15,10 @@ import ThemeToggle from "./components/ThemeToggle";
 const queryClient = new QueryClient();
 
 export default function Home() {
+  // Track current step (1-4)
   const [currentStep, setCurrentStep] = useState(1);
 
+  // Define all form steps with navigation handlers
   const steps = [
     <Step1 key={1} nextStep={() => setCurrentStep(2)} />,
     <Step2 key={2} nextStep={() => setCurrentStep(3)} prevStep={() => setCurrentStep(1)} />,
@@ -29,9 +31,13 @@ export default function Home() {
       <DarkModeProvider>
         <FormProvider>
           <div className="min-h-screen bg-blue-50/40 dark:bg-neutral-900 flex items-center justify-center p-4 transition-all duration-500">
+            {/* Form card */}
             <div className="bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg w-full max-w-md text-neutral-800 dark:text-neutral-100 transition-all duration-500">
               <h1 className="text-center font-extrabold text-xl mb-5 text-blue-400">FormWizard</h1>
+              {/* Progress indicator */}
               <FormProgress currentStep={currentStep} />
+
+              {/* Render current step */}
               {steps[currentStep - 1]}
             </div>
           </div>

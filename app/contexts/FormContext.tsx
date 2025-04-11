@@ -21,10 +21,18 @@ interface FormContextType {
 
 export const FormContext = createContext<FormContextType>({} as FormContextType);
 
+/**
+ * Form Provider Component
+ * Wraps the application to provide form state management
+ */
 export function FormProvider({ children }: { children: ReactNode }) {
   const [formData, setFormData] = useState<FormData>({} as FormData);
 
   return <FormContext.Provider value={{ formData, setFormData }}>{children}</FormContext.Provider>;
 }
 
+/**
+ * Custom hook for accessing form context
+ * @returns Form state and updater function
+ */
 export const useFormContext = () => useContext(FormContext);
