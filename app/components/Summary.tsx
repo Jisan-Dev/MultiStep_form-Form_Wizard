@@ -22,7 +22,7 @@ const Summary = () => {
       <h2 className="text-2xl font-bold text-center mb-6 dark:text-white">Review Your Information</h2>
 
       {/* Personal Information Section */}
-      <div className="bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg">
+      <div className="bg-neutral-100 dark:bg-neutral-700 p-4 rounded-lg">
         <h3 className="font-semibold mb-3 dark:text-neutral-200">Personal Information</h3>
 
         <dl className="space-y-2">
@@ -33,7 +33,7 @@ const Summary = () => {
       </div>
 
       {/* Address Section */}
-      <div className="bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg">
+      <div className="bg-neutral-100 dark:bg-neutral-700 p-4 rounded-lg">
         <h3 className="font-semibold mb-3 dark:text-neutral-200">Address Details</h3>
         <dl className="space-y-2">
           <DataRow label="Street" value={formData.street} />
@@ -43,7 +43,7 @@ const Summary = () => {
       </div>
 
       {/* Account Section */}
-      <div className="bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg">
+      <div className="bg-neutral-100 dark:bg-neutral-700 p-4 rounded-lg">
         <h3 className="font-semibold mb-3 dark:text-neutral-200">Account Details</h3>
         <dl className="space-y-2">
           <DataRow label="Username" value={formData.username} />

@@ -65,7 +65,7 @@ const Step2 = ({ nextStep, prevStep }: Step2ParamTypes) => {
       </div>
 
       <div className="flex justify-between">
-        <button type="submit" onClick={() => setPrev(true)} className="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300">
+        <button type="submit" onClick={() => setPrev(true)} className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
           Previous
         </button>
 

@@ -26,8 +26,8 @@ export default function Home() {
     <QueryClientProvider client={queryClient}>
       <FormProvider>
         <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h1 className="text-center font-bold text-2xl mb-5">Form Wizard</h1>
+          <div className="bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg w-full max-w-md text-neutral-800 dark:text-neutral-100">
+            <h1 className="text-center font-extrabold text-xl mb-5 text-blue-400">FormWizard</h1>
             <FormProgress currentStep={currentStep} />
             {steps[currentStep - 1]}
           </div>
