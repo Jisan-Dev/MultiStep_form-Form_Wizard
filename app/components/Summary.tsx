@@ -10,7 +10,7 @@ const Summary = () => {
 
   // Simulate API submission
   const { mutate, isPending, isSuccess } = useMutation({
-    mutationFn: async (data: typeof formData) => {
+    mutationFn: async (_data: typeof formData) => {
       // Simulate API call with 2 second delay
       await new Promise((resolve) => setTimeout(resolve, 2000));
       return Promise.resolve({ status: 200 });
