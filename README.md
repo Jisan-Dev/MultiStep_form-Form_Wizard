@@ -2,7 +2,9 @@
 
 A modern multi-step form implementation with robust validation, dark mode support, and seamless navigation. Built with Next.js, TypeScript, and Tailwind CSS.
 
-![Form Demo Screenshot](./public/screenshot.png) <!-- Add your screenshot -->
+![Form Demo Screenshot](./public/screenshot.png)
+
+live url: https://formmultiwizard.netlify.app/
 
 ## Features
 
